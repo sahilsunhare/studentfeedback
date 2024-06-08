@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <style>
+           #events {
+            border: 1px solid black;
+            width: 100%;
+            margin-top: 40px;
+            /* display: flex; */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+         .celebration {
+            position: relative;
+            /* opacity: 0; */
+            /* visibility: hidden; */
+            overflow: hidden;
+        }
+
+        .eventstext {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 264px;
+            text-align: center;
+            color: red;
+            transition: all 3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .celebration:hover .eventstext {
+            /* opacity: 0.5; 
+        visibility: visible;  */
+            top: 1px;
+            animation: eventspecial 5s;
+        }
+
+        @keyframes eventspecial {
+            from {
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            to {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+
+
+        .celebration {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            width: 100%;
+        }
+
+        .celebration img {
+            width: 100%;
+        }
+
+        .imgevent {
+            width: 100%
+        }
+
+        .side {
+            animation-name: side;
+            animation-duration: 2s;
+        }
+
+        @keyframes side {
+            from {
+                opacity: .5
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="celebration">
+        <div class="image ">
+            <img class="imgevent" src="dvok.jpg">
+        </div>
+        <div class="image side">
+            <img class="imgevent" src="cnc.jpg">
+        </div>
+        <div class="image side">
+            <img class="imgevent" src="dvok.jpg">
+        </div>
+        <div class="image side">
+            <img class="imgevent" src="cnc.jpg">
+        </div>
+        <div class="eventstext">
+            BADMINTON TOURNAMENT
+        </div>
+    </div>
+    <h1>Display Radio Buttons</h1>
+
+    <form>
+        <!-- <input type="radio" id="good" value="Good">
+        <label for="good">Good</label>
+        <input type="radio" id="very" value="Very">
+        <label for="very"> Very Good</label>
+        <input type="radio" id="bad" value="Bad">
+        <label for="bad">Bad</label>
+        <input type="radio" id="verybad">
+        <label>Very Bad</label><br><br>
+        <p>Treated students with respect</p>
+        <input type="radio" id="yes" value="yes">
+        <label for="good">Yes</label>
+        <input type="radio" id="no" value="no">
+        <label for="very"> No</label>
+        <input type="radio" id="both" value="both">
+        <label for="very"> Both</label><br><br>
+        <p> How many minutes did I tech you?</p>
+        <input type="radio" id="good" value="good">
+        <label for="good">15-30</label>
+        <input type="radio" id="very" value="very">
+        <label for="very"> 30-45</label>
+        <input type="radio" id="Bad" value="Bad">
+        <label for="bad">45-60</label>
+        <input type="radio" id="verybad">
+        <label>Above 60 minutes</label><br><br>
+        <p> Have you understood what sir has taught you or not?</p>
+        <input type="radio" id="yes" value="yes">
+        <label for="good">Yes</label>
+        <input type="radio" id="no" value="no">
+        <label for="very"> No</label><br><br>
+      <p>Please select your favorite Web language:</p> -->
+     <input type="radio" id="good" name="fav_language" value="good">
+<label for="html">Good</label><br>
+ <input type="radio" id="very" name="fav_language" value="very">
+  <label for="css">VeryGood</label><br>
+    <input type="radio" id="bad" name="fav_language" value="bad">
+     <label for="javascript">Verybad</label> <br>
+      <p>Please select your age:</p>
+      <input type="radio" id="age1" name="age" value="30">
+      <label for="age1">0 - 30</label><br>
+      <input type="radio" id="age2" name="age" value="60">
+      <label for="age2">31 - 60</label><br>  
+      <input type="radio" id="age3" name="age" value="100">
+      <label for="age3">61 - 100</label><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    
+</body>
+<script>
+     let indexevent = 0;
+        displayevents();
+
+        function displayevents() {
+            let i;
+            const images = document.getElementsByClassName("image");
+            for (i = 0; i < images.length; i++) { //4
+                images[i].style.display = "none";
+            }
+            indexevent++;
+            if (indexevent > images.length) {
+                indexevent = 1;
+            }
+            images[indexevent - 1].style.display = "block";
+            setTimeout(displayevents, 2000);
+        }
+</script>
+</html>

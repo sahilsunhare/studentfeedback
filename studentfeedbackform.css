@@ -1,0 +1,154 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ .mainbox {
+     width: 100%;
+     background-color: #061f50;
+ }
+
+ .feedbackform {
+     padding: 20px;
+     max-width: 1500px;
+     margin: 0 auto;
+ }
+
+ form {
+     background-color: #d5e3fc;
+     color: #061f50;
+     border-radius: 30px;
+     padding: 30px;
+     margin-top: 30px;
+ }
+
+ .fbheading {
+     display: flex;
+     align-items: center;
+     margin-bottom: 20px;
+ }
+
+ .student {
+     color: rgb(224, 170, 34);
+     font-size: 3.5rem;
+     margin-right: 10px;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
+
+ .fbform {
+     font-size: 4rem;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
+
+ .fbnote h4 {
+     font-size: 1.3rem;
+     margin-bottom: 10px;
+ }
+
+ .fbques {
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ .midfb {
+     display: flex;
+     margin-top: 20px;
+ }
+
+ .fbques1 {
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     width: 60%;
+     margin-right: 20px;
+ }
+
+ .fbpeople {
+     width: 80%;
+     text-align: center;
+     margin-top: 20px;
+ }
+
+ .fbpeople img {
+     max-width: 80%;
+     height: auto;
+     border-radius: 50%;
+ }
+
+ .textbox {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+
+ input[type="text"] {
+     width: calc(40% - 20px);
+     border-color: #cddcfc;
+     background-color: #e6ebf5;
+ }
+
+ button {
+     background-color: #061f50;
+     color: #ffffff;
+     border: none;
+     border-radius: 5px;
+     padding: 10px 20px;
+     font-size: 1rem;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+
+ button:hover {
+     background-color: #0a3b77;
+ }
+
+ .star {
+     font-size: 1.5rem;
+     cursor: pointer;
+ }
+
+ .one {
+     color: rgb(224, 170, 34);
+ }
+
+ .two {
+     color: rgb(224, 170, 34);
+ }
+
+ .three {
+     color: rgb(224, 170, 34);
+ }
+
+ .four {
+     color: rgb(224, 170, 34);
+ }
+
+ .five {
+     color: rgb(224, 170, 34);
+ }
+
+ @media screen and (max-width: 687px) {
+     .fbheading {
+         flex-direction: column;
+         text-align: center;
+     }
+
+     .student {
+         margin-bottom: 10px;
+     }
+
+     .midfb {
+         flex-direction: column;
+     }
+
+     .fbques1 {
+         width: 100%;
+         margin-right: 0;
+     }
+ }
+ .footer {
+    background-color:#061f50;
+    width: 100%;
+    color: #CADCFC;
+    text-align: right;
+    padding: 10px;
+    font-size: 10px;
+}

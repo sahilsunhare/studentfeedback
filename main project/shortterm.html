@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short term</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/aa63d55fe6.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heading img {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+       
+        .navbar {
+            background-color: #00246B;
+            color: #CADCFC;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .openBar {
+            visibility: hidden;
+        }
+
+        .cancelBar {
+            visibility: hidden;
+        }
+
+        .navbar li {
+            display: inline;
+            padding: 10px;
+            text-decoration: none;
+            margin: 0px 20px;
+            font-size: 18px;
+        }
+
+        .navbar ul li {
+            position: relative;
+            font-size: 25px;
+        }
+
+        .navbar ul li:hover::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            animation: navbarLi 0.2s linear;
+        }
+
+        /* navbar */
+        @media screen and (max-width:950px) {
+
+            .openBar {
+                visibility: visible;
+            }
+
+            .navbar {
+                justify-content: left;
+            }
+
+            .navlist {
+                display: block;
+                position: absolute;
+                top: 25px;
+                background-color: rgba(39, 38, 38, 0.808);
+                transform: translateX(-120%);
+            }
+
+            .navbar li {
+                display: block;
+            }
+
+        }
+
+        .training a {
+            list-style-type: none;
+            text-decoration: none;
+            color: #CADCFC;
+            padding: 12px 16px;
+        }
+
+        .trainingcourse {
+            display: none;
+            position: absolute;
+            left: 0px;
+            box-shadow: 5px 10px 15px grey;
+            background-color: rgb(245, 245, 247);
+            width: 250px;
+            top: 50px;
+        }
+
+        .trainingcourse a {
+            color: black;
+            font-size: 20px;
+            display: block;
+        }
+
+        .training:hover .trainingcourse {
+            display: block;
+        }
+
+        .trainingcourse a:hover {
+            background-color: #00246B;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .traininglist {
+            width: 100%;
+            margin: 5px;
+        }
+
+        .gb a {
+            list-style-type: none;
+            text-decoration: none;
+            color: #CADCFC;
+        }
+
+        @keyframes navbarLi {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .navbar li {
+                margin: 0px 10px;
+                font-size: 16px;
+            }
+
+            .navbar {
+                padding: 10px;
+            }
+
+            .courselist {
+                visibility: hidden;
+            }
+        }
+
+        .cousrses {
+            display: flex;
+            width: 100%;
+        }
+
+        .table {
+            width: 70%;
+            margin-top: 0.1rem;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        tr:nth-child(even) {
+            background-color: #cbc9c9;
+        }
+
+        .courseheading {
+            font-size: 20px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .subjecttable {
+            width: 70%;
+        }
+
+        th {
+            text-align: left;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        .courselist {
+            width: 15%;
+            margin-left: 10px;
+            margin: 0px auto;
+            font-size: 20px;
+        }
+
+        .courselist a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .igtrcourselist {
+            background-color: rgba(237, 20, 20, 0.831);
+            padding: 10px 5px 10px 20px;
+            width: 90%;
+            margin-top: 20px;
+            font-size: 23px;
+        }
+
+        .igtrcourselist a {
+            color: white;
+        }
+
+        .igtrcourselist a:hover {
+            color: black;
+        }
+
+        .igtrcourses {
+            display: flex;
+            margin-top: 15px;
+            font-size: 22px;
+        }
+
+        .igtrcourses a {
+            color: rgb(54, 53, 53);
+        }
+
+        .igtrcourses a:hover {
+            color: red;
+            text-transform: capitalize;
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #00246B;
+            width: 100%;
+            color: #CADCFC;
+            text-align: right;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="heading">
+            <img src="logo.png">
+        </div>
+        <div class="navbar">
+            <div class="openBar">
+                <i class="fa-solid fa-bars" onclick="displayNav()"></i>
+            </div>
+            <div class="cancelBar">
+                <i class="fa-regular fa-circle-xmark" onclick="nonDisplatNav()"></i>
+            </div>
+            <ul class="navlist" id="navLi" style="list-style-type: none;">
+                <li class="gb"><a onclick="scrollabout()" href="Feedbackform.html">About</a></li>
+                <li class="training"><a>Training</a>
+                    <div class="trainingcourse">
+                        <a>TRAINING COURSES</a>
+                        <hr class="traininglist">
+                        <a href="shortterm.html">Short term course</a>
+                        <a href="midterm.html">Mid term course</a>
+                        <a href="longterm.html">Long term course</a>
+                        <a href="toolterm.html">Tool & Die makeing</a>
+                        <a href="training.html">Training machine</a>
+                    </div>
+                </li>
+                <li class="gb"><a href="placement.html">Placement</a></li>
+                <li class="gb"><a onclick="scrollcontact()" href="Feedbackform.html">Contact Us</a></li>
+                <li class="gb"><a href="../studentfeedbackform.html">Feedback</a></li>
+            </ul>
+        </div>
+
+        <div class="cousrses">
+            <div class="courselist">
+                <div class="igtrcourselist">
+                    <a href="">Training Courses</a>
+                </div>
+                <div class="igtrcourses">
+                    <a href="shortterm.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Short term course</a>
+                </div>
+                <div class="igtrcourses">
+                    <a href="midterm.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Mid term course</a>
+                </div>
+                <div class="igtrcourses">
+                    <a href="longterm.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Long term course</a>
+                </div>
+                <div class="igtrcourses">
+                    <a href="toolterm.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Tool & Die Makeing</a>
+                </div>
+                <div class="igtrcourses">
+                    <a href="training.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Training machine</a>
+                </div>
+            </div>
+
+            <div class="table">
+
+                <div class="courseheading">
+                    <b> TRAINING SHORT TERM COURSES </b>
+                </div>
+
+                <table class="subjecttable" style="border: 1px solid;">
+                    <tr>
+                        <th colspan="3">Name of Course</th>
+                        <th>Qualification</th>
+                        <th>Duration</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Computer Hardware &amp; Networking</td>
+                        <td>10th Pass</td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Master CAM</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Solid Works</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Pro-E</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Unigraphics</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Catia</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">CNC Programming Lathe</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">CNC Programming Milling</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">CNC Machining Lathe</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">CNC Machining Milling</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Auto CAD</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Ansys</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Auto CAD Electrical</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">PLC Programming</td>
+                        <td></td>
+                        <td>4 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">SCADA</td>
+                        <td></td>
+                        <td>4 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">VLSI</td>
+                        <td></td>
+                        <td>4 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Embedded System</td>
+                        <td></td>
+                        <td>4 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">REVIT</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">3D MAX</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Stadd Pro</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">JAVA</td>
+                        <td></td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">DELCAM</td>
+                        <td></td>
+                        <td>3 weeks</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            Designed & Developed by IGTR DICS 3rd YEAR(1st batch) Student -Indore.
+        </div>
+
+    </div>
+
+    <script>
+        //nav bar
+        function displayNav() {
+                document.getElementsByClassName("openBar")[0].style.visibility = "hidden";
+                document.getElementsByClassName("cancelBar")[0].style.visibility = "visible";
+                document.getElementById("navLi").style.transform = "translateX(0%)";
+            }
+    
+            function nonDisplatNav() {
+                document.getElementsByClassName("cancelBar")[0].style.visibility = "hidden";
+                document.getElementsByClassName("openBar")[0].style.visibility = "visible";
+                document.getElementById("navLi").style.transform = "translateX(-100%)";
+            }
+    
+    </script>
+    
+</body>
+
+</html>

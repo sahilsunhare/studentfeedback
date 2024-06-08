@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/aa63d55fe6.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heading img {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .training a {
+            list-style-type: none;
+            text-decoration: none;
+            color: #CADCFC;
+            padding: 12px 16px;
+            /*   display: block; */
+        }
+
+        .trainingcourse {
+            display: none;
+            position: absolute;
+            left: 0px;
+            box-shadow: 5px 10px 15px grey;
+            background-color: white;
+            width: 250px;
+            top: 50px;
+        }
+
+        .trainingcourse a {
+            color: black;
+            font-size: 20px;
+            display: block;
+        }
+
+        .training:hover .trainingcourse {
+            display: block;
+        }
+
+        .trainingcourse a:hover {
+            background-color: #00246B;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .traininglist {
+            width: 100%;
+            margin: 5px;
+
+        }
+
+        .gb a {
+            list-style-type: none;
+            text-decoration: none;
+            color: #CADCFC;
+        }
+
+        @keyframes navbarLi {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .navbar li {
+                margin: 0px 10px;
+                font-size: 16px;
+            }
+        }
+
+        .igtrimg {
+            height: 500px;
+            width: 100%;
+            background-color: #235298;
+            /* padding-top: 149px; */
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .imgdiv {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+        }
+
+        .multimg {
+            /* width: 100%; */
+            display: flex;
+            position: relative;
+            z-index: 9;
+            margin-top: -100px;
+            padding-left: 10px;
+            justify-content: space-around;
+        }
+
+        .multimg img {
+            display: block;
+            width: 20%;
+            border-radius: 20%;
+            box-shadow: 3px 3px 3px 3px;
+        }
+
+        .multimg img:hover {
+            animation: trial 2s;
+        }
+
+        @keyframes trial {
+            from {
+                transform: scale(1.0);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .img {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+            margin: auto;
+            letter-spacing: 2px;
+            padding-bottom: 10%;
+            width: 100%;
+            text-shadow: 2px 2px rgba(29, 28, 28, 0.93);
+        }
+
+        .image-slideshow {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 5s;
+        }
+
+        /* @keyframes fade {
+            from {
+                opacity: .3
+            }
+
+            to {
+                opacity: 1
+            }
+        } */
+
+        .highlight {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .highlight h1 {
+            text-align: center;
+            /* display: flex; */
+            font-size: 50px;
+            /* align-items: center; */
+            position: relative;
+            color: rgb(173, 172, 172);
+        }
+
+        .highlight h1::after,
+        .highlight h1::before {
+            content: "";
+            width: 200px;
+            height: 1px;
+            /* justify-content: center; */
+            background-color: lightgray;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* .highlight h1::after {
+            margin-left: 50px;
+        }
+
+        .highlight h1::before {
+            margin-right: 50px;
+        } */
+
+        .highlight h1::after {
+            right: calc(100% + 20px);
+            /* Position to the right of the heading */
+        }
+
+        .highlight h1::before {
+            left: calc(100% + 20px);
+            /* Position to the left of the heading */
+        }
+
+        @media (max-width: 768px) {
+            .highlight h1 {
+                font-size: 40px;
+            }
+
+            .highlight h1::after,
+            .highlight h1::before {
+                width: 150px;
+            }
+
+            .highlight h1::after {
+                right: calc(100% + 15px);
+            }
+
+            .highlight h1::before {
+                left: calc(100% + 15px);
+            }
+        }
+
+        .coursec {
+            /* width: 80%; */
+            margin-top: 35px;
+            margin-left: 250px;
+            margin-bottom: 50px;
+            /* border: 1px solid red; */
+        }
+
+        .section {
+            width: 80%;
+            /* border: 2px black solid; */
+            display: flex;
+            padding: 20px;
+            /* padding-top: 50px; */
+            /* margin-top: 50px; */
+            box-shadow: 2px 4px 2px 2px;
+        }
+
+        .A1 {
+            padding-bottom: 20px;
+        }
+
+        .adtdm {
+            width: 65%;
+            text-align: center;
+            /* padding-top: 50px; */
+            /* border: 2px blue solid; */
+        }
+
+        .adtmimg {
+            width: 35%;
+            left: auto;
+            text-align: center;
+        }
+
+        .adtmimg img {
+            width: 90%;
+        }
+
+        .section2 {
+            width: 80%;
+            margin-top: 50px;
+            padding: 20px;
+            box-shadow: 2px 4px 2px 2px;
+        }
+
+        .dvok {
+            text-align: center;
+            /* width: 80%; */
+            display: flex;
+
+            /* /* border: 2px red solid  */
+        }
+
+        .dvokimg {
+            width: 30%;
+            /* border: 2px blue solid; */
+            padding: 5px;
+        }
+
+        .dvokimg img {
+            width: 100%;
+        }
+
+        .dvokc {
+            width: 65%;
+            padding-left: 10px;
+        }
+
+        .A2 {
+            padding: 20px;
+        }
+
+        .section3 {
+            padding: 20px;
+            margin-top: 50px;
+            width: 80%;
+            /* border: #00246B solid 2px; */
+            box-shadow: 2px 4px 2px 2px;
+        }
+
+        .dcs {
+            padding-top: 15px;
+            /* width: 80%; */
+            /* padding: 20px; */
+            display: flex;
+            /* border: 2px yellow solid; */
+        }
+
+        .dcsc {
+            width: 65%;
+            /* border: 2px red solid; */
+            padding: 0px 25px;
+            text-align: center;
+        }
+
+        .dcsimg {
+            width: 30%;
+            padding-top: 15px;
+            /* border: 2px rebeccapurple solid; */
+        }
+
+        .dcsimg img {
+            width: 100%;
+        }
+
+        .A3 {
+            padding: 10px;
+        }
+
+        .section4 {
+            margin-top: 50px;
+            width: 80%;
+            display: flex;
+            /* border: red 1px solid; */
+        }
+
+        .dim {
+            box-shadow: 2px 4px 2px 2px;
+            display: flex;
+            /* border: green 1px solid; */
+        }
+
+        .dimimg {
+            width: 27%;
+            padding: 15px;
+            /* border: blue 1px solid; */
+        }
+
+        .dimimg img {
+            width: 100%;
+            /* border: pink 1px solid; */
+        }
+
+        .dimc {
+            padding: 15px;
+            width: 65%;
+            /* border: black 1px solid; */
+            text-align: center;
+        }
+
+        .A4 {
+            padding: 25px;
+        }
+
+        /* Responsive styles */
+        @media only screen and (max-width: 768px) {
+
+            .coursec {
+                /* width: 100%; */
+                margin-left: 100px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .dvok,
+            .dcs,
+            .adtdm,
+            .dim {
+                flex-direction: column;
+            }
+
+            .dvokimg,
+            .dcsimg,
+            .adtmimg,
+            .dimimg {
+                width: 100%;
+            }
+        }
+
+        #about {
+            margin: auto;
+            border: 1px solid lightslategray;
+            box-shadow: 2px 4px 2px 2px;
+            width: 83%;
+            padding: 15px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            /* Ensure children stack vertically */
+        }
+
+        .abt {
+            display: flex;
+            align-items: center;
+            /* Align children horizontally */
+            margin-bottom: 10px;
+            /* Add spacing between elements */
+        }
+
+        .abtimg img {
+            border-radius: 50%;
+            /* Make images circular */
+            box-shadow: 2px 4px 8px black;
+            height: 50px;
+            width: 50px;
+        }
+
+        .aboutheading {
+            color: rgb(234, 6, 6);
+            font-size: 20px;
+            padding-left: 10px;
+            margin-bottom: 5px;
+            /* Add spacing below heading */
+        }
+
+        .paragraph {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .type {
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Distribute children evenly */
+        }
+
+        .type1 {
+            padding: 5px;
+        }
+
+        .type2 {
+            padding: 6px;
+        }
+
+        .abouttype2 {
+            margin-top: 5px;
+            font-size: 20px;
+            margin-left: 66px;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            #about {
+                width: 90%;
+                /* Adjust width for smaller screens */
+            }
+
+            .abtimg img {
+                height: 40px;
+                /* Decrease image size for smaller screens */
+                width: 40px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .aboutheading {
+                font-size: 18px;
+            }
+
+            .paragraph {
+                font-size: 16px;
+            }
+
+            .type {
+                font-size: 18px;
+            }
+        }
+
+        hr {
+            width: 90%;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+
+        #mid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            width: 83%;
+            margin: auto;
+        }
+
+        .map {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .detial {
+            width: 50%;
+            background-color: rgb(248, 242, 242);
+            margin-left: 5px;
+            padding: 15px;
+            color: rgb(41, 39, 39);
+            text-align: center;
+        }
+
+        .detial h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .dtlhr {
+            margin: 15px auto;
+            background-color: #ccc;
+        }
+
+        .para {
+            font-size: 25px;
+            color: rgb(41, 39, 39);
+            line-height: 1.6;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #00246B;
+            color: white;
+            justify-content: space-between;
+        }
+
+        .logoimg {
+            display: flex;
+            margin-top: 20px;
+            margin-left: 40px;
+            padding-top: 10px;
+        }
+
+        .note {
+            padding: 20px;
+        }
+
+        .ftcolumn {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .ftcolumn ul {
+            list-style-type: none;
+            margin: auto;
+            color: lightgray;
+        }
+
+        .stcourse {
+            width: 20%;
+            justify-content: center;
+        }
+
+        .follows {
+            padding-top: 50px;
+        }
+
+        .footer-item {
+            padding: 50px;
+        }
+
+        .contactus {
+            width: 30%;
+        }
+
+        .ftbt {
+            width: 95%;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .ftbottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .ftbottom img {
+            width: 120px;
+            padding: 10px;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 960px) {
+
+            .ftcolumn {
+                flex-direction: column;
+                align-items: center;
+                font-size: 30px;
+            }
+
+            .stcourse {
+                width: 100%;
+            }
+
+            .contactus {
+                width: 100%;
+            }
+
+            .ftbottom img {
+                width: 80px;
+            }
+        }
+
+        .navbar {
+            background-color: #00246B;
+            color: #CADCFC;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .openBar {
+            visibility: hidden;
+        }
+
+        .cancelBar {
+            visibility: hidden;
+        }
+
+        .navbar li {
+            display: inline;
+            padding: 10px;
+            text-decoration: none;
+            margin: 0px 20px;
+            font-size: 18px;
+        }
+
+        .navbar ul li {
+            position: relative;
+            font-size: 25px;
+        }
+
+        .navbar ul li:hover::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            animation: navbarLi 0.2s linear;
+        }
+
+        /* navbar */
+        @media screen and (max-width:950px) {
+
+            .openBar {
+                visibility: visible;
+            }
+
+            .navbar {
+                justify-content: left;
+            }
+
+            .navlist {
+                display: block;
+                position: absolute;
+                top: 25px;
+                background-color: rgba(39, 38, 38, 0.808);
+                transform: translateX(-120%);
+            }
+
+            .navbar li {
+                display: block;
+            }
+
+            .highlight {
+                visibility: hidden;
+            }
+
+            .coursec {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="heading">
+            <img src="./main project/logo.png">
+        </div>
+        <div class="navbar">
+            <div class="openBar">
+                <i class="fa-solid fa-bars" onclick="displayNav()"></i>
+            </div>
+            <div class="cancelBar">
+                <i class="fa-regular fa-circle-xmark" onclick="nonDisplatNav()"></i>
+            </div>
+            <ul class="navlist" id="navLi" style="list-style-type: none;">
+                <li><a onclick="scrollabout()">About</a></li>
+                <li class="training"><a>Training</a>
+                    <div class="trainingcourse">
+                        <a>TRAINING COURSES</a>
+                        <hr class="traininglist">
+                        <a href="main project/shortterm.html">Short term course</a>
+                        <a href="main project/midterm.html">Mid term course</a>
+                        <a href="main project/longterm.html">Long term course</a>
+                        <a href="main project/toolterm.html">Tool & Die makeing</a>
+                        <a href="main project/training.html">Training machine</a>
+                    </div>
+                </li>
+                <li class="gb"><a href="main project/placement.html">Placement</a></li>
+                <li><a onclick="scrollcontact()">Contact Us</a></li>
+                <li class="gb"><a href="main project/logn.html">Login</a></li>
+            </ul>
+        </div>
+        <div class="igtrimg">
+            <div class="imgdiv">
+                <img src="./main project/admin.jpg" height="500px" width="100%">
+            </div>
+            <div class="image-slideshow">
+                <div class="image fade">
+                    <h1 class="img">"THINKING BEYOND THE FRAME MEANS HAVING A CAMPUS BEYOND BORDERS"</h1>
+                </div>
+                <div class="image fade">
+                    <h1 class="img">"A LITTLE PROGRESS EACH DAY ADDS UP TO BIG RESULTS"</h1>
+                </div>
+                <div class="image fade">
+                    <h1 class="img">"DISCIPLINE IS THE BRIDGE BETWEEN GOALS & ACCOMPLISHMENT"</h1>
+                </div>
+            </div>
+        </div>
+        <div class="multimg">
+            <img src="./main project/admin.jpg">
+            <img src="./main project/machine.jpg">
+            <img src="./main project/cnc.jpg">
+            <img src="./main project/traning.jpg">
+        </div>
+        <div class="highlight">
+            <h1>COURSES</h1>
+        </div>
+        <div class="coursec">
+            <div class="section">
+                <div class="adtdm">
+                    <div class="A1">
+                        <h1>Advance Diploma In Tool & Die Making</h1>
+                    </div>
+                    <h3>To serve small & medium enterprises, particularly metal and plastic groups in the fields
+                        of:
+                        Tool design is critical to the manufacturing industry. Tooling is the foundation for product
+                        design & the manufacturing industry. The cad drafting & tool design programme concentrate on
+                        the
+                        use of cad in product drawing ,dies of metal stamping, molds of plastic processes, jigs &
+                        fixture & gauge design.</h3>
+                </div>
+                <div class="adtmimg">
+                    <img src="./main project/adtmmachine.jpg">
+                </div>
+            </div>
+            <div class="section2">
+                <div class="dvok">
+                    <div class="dvokimg">
+                        <img src="./main project/dvok.jpg">
+                    </div>
+                    <div class="dvokc">
+                        <div class="A2">
+                            <h1>Diploma of Vocation</h1>
+                        </div>
+                        <h3>Diploma of Vocation (D.VOC) in Production Technology is a 3-year course. There are a
+                            total
+                            of 6 semesters in the course. This course is based on academics and practical sessions
+                            with
+                            experts, during the study involves applying the skills and knowledge of researchers to
+                            develop new products and processes.</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="section3">
+                <div class="dcs">
+                    <div class="dcsc">
+                        <div class="A3">
+                            <h1>Diploma in Computer Science</h1>
+                        </div>
+                        <h3>Computer science courses have witnessed a huge jump in enrollment, especially in the
+                            last
+                            two decades due to the internet boom and the exceptional rise of software companies like
+                            Apple and Google. Students are pursuing a diploma program of two or three years after
+                            completing their 10th or 12th standard in order to get into the computer science and
+                            information technology industry. Here are the key elements you need to know if you are
+                            interested in pursuing Diploma in Computer Science.</h3>
+                    </div>
+                    <div class="dcsimg">
+                        <img src="main project/dcs.jpg">
+
+                    </div>
+                </div>
+            </div>
+            <div class="section4">
+                <div class="dim">
+                    <div class="dimimg">
+                        <img src="./main project/mechronic.jpg">
+
+                    </div>
+                    <div class="dimc">
+                        <div class="A4">
+                            <h1>Diploma in Mechatronic</h1>
+                        </div>
+                        <h3>Diploma in Mechatronics Engineering is a diploma certificate program having a duration
+                            of
+                            three years.It can be pursued by students who have passed 10th or 12th in the science
+                            stream. Mechatronics Engineering which is a newer branch of engineering in comparison to
+                            mechanical or electronics engineering has its origins from these branches only.<a
+                                href="https://collegedunia.com/courses/diploma-in-mechatronics">More</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="about">
+            <div class="abtheading">
+                <div class="abt">
+                    <div class="abtimg">
+                        <img src="./main project/logo igtr.jpg">
+                    </div>
+                    <div class="aboutheading">
+                        <h1>About IGTR, Indore</h1>
+                    </div>
+                </div>
+
+                <div class="aboutpara">
+                    <p class="paragraph">MSME TECHNOLOGY CENTRE, INDORE (Indo German Tool Room) is one of the
+                        leading
+                        tool rooms in central part
+                        of India.It is located at Indore, one of the commercial cities of Madhya Pradesh. It is a
+                        Central Govt.
+                        project with assistance from Republic of Germany. Government of Madhya Pradesh provided
+                        land,
+                        building &
+                        infrastructure. It is providing services to various customers in below mentioned fields.</p>
+                </div>
+                <div class="type">
+                    <div class="abouttype">
+                        <div class="type1"><i class="fa fa-arrow-circle-right"></i>Design and manufacturing of Press
+                            Tools,
+                            Moulds and Die casting die.</div>
+                        <div class="type1"><i class="fa fa-arrow-circle-right"></i>Design and manufacturing of Jigs,
+                            Fixtures and Gauges </div>
+                    </div>
+                    <div class="abouttype">
+                        <div class="type2"><i class="fa fa-arrow-circle-right"></i>Job work in CNC Machining.</div>
+                        <div class="type2"><i class="fa fa-arrow-circle-right"></i>Mass and Pilot Production of
+                            Precision
+                            Components/ Assemblies /Sub-Assemblies</div>
+                    </div>
+                </div>
+                <div class="abouttype2"><i class="fa fa-arrow-circle-right"></i>
+                    <b>We have developed our capacity and capability for manufacturing of</b><br>
+                    Special type of Magnets used in Electron Beam Accelerator required for R&D Labs.
+                    Special Moulds like Form Fill and Blow Fill moulds for Pharmaceutical Industries used in liquid
+                    medicine packaging.
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id="mid">
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14714.292349704181!2d75.8469847!3d22.7812193!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963025a033a46bf%3A0x2ff39b1a3e8f82cb!2sIndo%20German%20Tool%20Room%2C%20Indore!5e0!3m2!1sen!2sin!4v1707461571909!5m2!1sen!2sin"
+                width="600" height="400" style="border:0; margin: auto;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="detial">
+            <h1>Indo German Tool Room, Indore</h1>
+            <hr class="dtlhr">
+            <p class="para">College in Indore, Madhya Pradesh<br>
+                Address: 452003, Sector E, Sanwer Road Industrial Area, Indore, Madhya Pradesh 452003
+                <br>
+                Phone: 0731 421 0738<br>
+                Hours: Open 7:30 ⋅ Closes 5:30pm Monday to Saturday<br>
+                Sunday is off
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="logoimg">
+            <img src="./main project/logo igtr.jpg" height="50px" width="50px">
+            <div class="note">
+                <h4> *This figure represents the ratio of students on the Indo German Tool Room, Indore to the
+                    population present, and is one element of the effective multicultural experience.
+                </h4>
+            </div>
+        </div>
+        <div class="ftcolumn">
+            <div class="stcourse  footer-item">
+                <div class="stc">
+                    <h2>SHORT TERM COURSES</h2><br>
+                    <ul>
+                        <li>Master CAM</li>
+                        <li>Solid Work</li>
+                        <li>CNC Programming Lathe </li>
+                        <li>CNC machining Milling</li>
+                        <li>Auto CAD</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lgcourse footer-item">
+                <div class="lgt">
+                    <h2>DIPLOMA COURSES</h2><br>
+                    <ul>
+                        <li>Advance Diploma In Tool & Die Making</li>
+                        <li>Diploma Course In Mechatronics</li>
+                        <li>Diploma In D.VOC Production Technology </li>
+                        <li>Diploma In Computer Science</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contactus footer-item">
+                <div class="contact">
+                    <h2>CONTACT US</h2><br>
+                    <ul>
+                        <li>Address:- Plot no.291-B, 302-A, Sector-E, Industrial Area, Sanwer Road, Indore(M.P)
+                            452015</li>
+                        <li>Email:- gm@igtr-indore.com, patogm@igtr-indore.com</li>
+                        <li>Mobile No:- (0731) 4210700,4210704,4210707,4210709</li>
+                    </ul>
+                </div>
+                <div class="follows">
+                    <h2>FOLLOWS US</h2><br>
+                    <ul>
+                        <li><i class="fa-brands fa-facebook"></i> <i class="fa-brands fa-x-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr class="ftbt">
+        <div class="ftbottom">
+            <img src="./main project/icher.jpg">
+            <img src="./main project/jbm.jpg">
+            <img src="./main project/panasonic.jpg">
+            <img src="./main project/cumiis.jpg">
+            <img src="./main project/godrej.jpg">
+            <img src="./main project/hoaresicher.jpg">
+            <img src="./main project/INDOTOOLING.jpg">
+            <img src="./main project/ACG.jpg">
+            <img src="./main project/isro.jpg">
+        </div>
+    </div>
+
+    </div>
+    <script>
+        const element = document.getElementById("about"); //div about JS
+
+        function scrollabout() {
+            element.scrollIntoView(true);
+        }
+        const shree = document.getElementById("mid"); // div mid JS
+        // console.log(shree)
+        function scrollcontact() {
+            shree.scrollIntoView(true);
+        }
+
+        let index = 0; //div thoughttext JS 
+        displayImages();
+        function displayImages() {
+            let i;
+            const images = document.getElementsByClassName("fade");
+            for (i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+            }
+            index++;
+            if (index > images.length) {
+                index = 1;
+            }
+            images[index - 1].style.display = "block";
+            setTimeout(displayImages, 2000);
+        }
+
+        //events img
+        let indexevent = 0;
+        displayevents();
+        function displayevents() {
+            let i;
+            const images = document.getElementsByClassName("side");
+            for (i = 0; i < images.length; i++) { //4
+                images[i].style.display = "none";
+            }
+            indexevent++;
+            if (indexevent > images.length) {
+                indexevent = 1;
+            }
+            images[indexevent - 1].style.display = "block";
+            setTimeout(displayevents, 2000);
+        }
+        //nav bar
+        function displayNav() {
+            document.getElementsByClassName("openBar")[0].style.visibility = "hidden";
+            document.getElementsByClassName("cancelBar")[0].style.visibility = "visible";
+            document.getElementById("navLi").style.transform = "translateX(0%)";
+        }
+
+        function nonDisplatNav() {
+            document.getElementsByClassName("cancelBar")[0].style.visibility = "hidden";
+            document.getElementsByClassName("openBar")[0].style.visibility = "visible";
+            document.getElementById("navLi").style.transform = "translateX(-100%)";
+        }
+
+    </script>
+</body>
+
+</html>

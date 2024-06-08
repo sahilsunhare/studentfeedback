@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/aa63d55fe6.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heading img {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+      
+        .navbar {
+            background-color: #00246B;
+            color: #CADCFC;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .openBar {
+            visibility: hidden;
+        }
+
+        .cancelBar {
+            visibility: hidden;
+        }
+
+        .navbar li {
+            display: inline;
+            padding: 10px;
+            text-decoration: none;
+            margin: 0px 20px;
+            font-size: 18px;
+        }
+
+        .navbar ul li {
+            position: relative;
+            font-size: 25px;
+        }
+
+        .navbar ul li:hover::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            animation: navbarLi 0.2s linear;
+        }
+
+        /* navbar */
+        @media screen and (max-width:950px) {
+
+            .openBar {
+                visibility: visible;
+            }
+
+            .navbar {
+                justify-content: left;
+            }
+
+            .navlist {
+                display: block;
+                position: absolute;
+                top: 25px;
+                background-color: rgba(39, 38, 38, 0.808);
+                transform: translateX(-120%);
+            }
+
+            .navbar li {
+                display: block;
+            }
+
+        }
+
+        .training a {
+            list-style-type: none;
+            text-decoration: none;
+            color: #CADCFC;
+            padding: 12px 16px;
+            /*   display: block; */
+        }
+
+        .trainingcourse {
+            display: none;
+            position: absolute;
+            left: 0px;
+            box-shadow: 5px 10px 15px grey;
+            background-color: rgb(245, 245, 247);
+            width: 250px;
+            top: 50px;
+        }
+
+        .trainingcourse a {
+            color: black;
+            font-size: 20px;
+            display: block;
+        }
+
+        .training:hover .trainingcourse {
+            display: block;
+        }
+
+        .trainingcourse a:hover {
+            background-color: #00246B;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .traininglist {
+            width: 100%;
+            margin: 5px;
+
+        }
+
+        .gb a {
+            list-style-type: none;
+            text-decoration: none;
+            color: #CADCFC;
+        }
+
+        @keyframes navbarLi {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .navbar li {
+                margin: 0px 10px;
+                font-size: 16px;
+            }
+        }
+
+        .posterimg {
+            width: 70%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .posterimg img {
+            border-radius: 5px 35px 5px 35px;
+        }
+
+        .placementtable {
+            border: 1px solid black;
+            width: 60%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .company {
+            font-size: 28px;
+            color: brown;
+            text-align: center;
+        }
+
+        .heading p {
+            font-size: 15px;
+            color: black;
+        }
+
+        .list {
+            display: flex;
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .list ul li {
+            padding-top: 10px;
+        }
+
+        .list1 {
+            background-color: #6fa1c0;
+            height: 470px;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            padding-left: 30px;
+        }
+
+        .list2 {
+            border: 1px solid rgb(231, 228, 228);
+            background-color: #e7e0d8;
+            border-radius: 10px;
+            margin-left: 5px;
+            margin-top: 40px;
+            padding: 10px;
+            padding-left: 30px;
+        }
+
+        .list3 {
+            color: white;
+            border-radius: 10px;
+            background-color: #ff9900;
+            margin-left: 5px;
+            height: 470px;
+            padding: 10px; padding-left: 30px;
+        }
+
+
+        .footer {
+            background-color: #00246B;
+            width: 100%;
+            color: #CADCFC;
+            text-align: right;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="heading">
+            <img src="logo.png">
+        </div>
+        <div class="navbar">
+            <div class="openBar">
+                <i class="fa-solid fa-bars" onclick="displayNav()"></i>
+            </div>
+            <div class="cancelBar">
+                <i class="fa-regular fa-circle-xmark" onclick="nonDisplatNav()"></i>
+            </div>
+            <ul class="navlist" id="navLi" style="list-style-type: none;">
+                <li class="gb"><a onclick="scrollabout()" href="Feedbackform.html">About</a></li>
+                <li class="training"><a>Training</a>
+                    <div class="trainingcourse">
+                        <a>TRAINING COURSES</a>
+                        <hr class="traininglist">
+                        <a href="shortterm.html">Short term course</a>
+                        <a href="midterm.html">Mid term course</a>
+                        <a href="longterm.html">Long term course</a>
+                        <a href="toolterm.html">Tool & Die makeing</a>
+                        <a href="training.html">Training machine</a>
+                    </div>
+                </li>
+                <li class="gb"><a href="placement.html">Placement</a></li>
+                <li class="gb"><a onclick="scrollcontact()" href="Feedbackform.html">Contact Us</a></li>
+                <li class="gb"><a href="../studentfeedbackform.html">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="posterimg">
+            <img src="admin.jpg" width="100%">
+        </div>
+        <div class="placementtable">
+            <table>
+                <tr style="background:#fdb2b2;color:#000;">
+                    <th>Placement Details </th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Placement Officer </td>
+                    <td>Mr. R. Nair,(Placement -incharge)<br>Contact No.:- 9977701931,0731421702<br>Email.id:-
+                        hr@igtr-indore.com</td>
+                </tr>
+            </table>
+        </div>
+        <div class="heading">
+            <b class="company">Our Valuable Recruiters</b><br>
+            <p> A GREAT FUTURE RELIES ON GREAT EFFORT.</p>
+        </div>
+        <div class="list">
+            <div class="list1">
+                <ul>
+                    <li>VE Commercial Vehicles Ltd., PITHAMPUR</li>
+                    <li>Eicher Engineering Components, Dewas</li>
+                    <li>Force Motors Limited, Pithampur</li>
+                    <li>Honda Cars India Limited, Noida</li>
+                    <li>JBM GROUP (All Plants)</li>
+                    <li>Rotex Automation Limited</li>
+                    <li>Ralson Tyres Limited</li>
+                    <li>Mann Electronics</li>
+                    <li>Jash Engineering Limited</li>
+                    <li>Nagata Group (India Operations)</li>
+                    <li>Caparo Engineering India Ltd</li>
+                    <li>ADDVERB TECHNOLOGIES PVT LTD,NOIDA</li>
+                    <li>JK Tyre &amp; Ind. Ltd</li>
+                    <li>D &amp; H Secheron</li>
+                    <li>MITA INDIA PVT LTD,Dewas</li>
+                    <li>Vishal Fab India Pvt. Ltd,Indore</li>
+                </ul>
+            </div>
+            <div class="list2">
+                <ul>
+                    <li>Indore Tools Limited, Indore</li>
+                    <li>Roca Parrewear, Dewas</li>
+                    <li>Schneider Electric India Private Limited,Gujrat</li>
+                    <li>Altis Industries Pvt.Ltd., Pithampur</li>
+                    <li>Hindalco Industries Ltd</li>
+                    <li>MSME TC BHOPAL</li>
+                    <li>Zeeta Electrical Engineering Pvt. Ltd.</li>
+                    <li>Dhoot Transmission Pvt. Ltd.</li>
+                    <li>Cummins India Ltd</li>
+                    <li>JTEKT India Limited</li>
+                    <li>Sofcon India Pvt Ltd</li>
+                    <li>Woco Tech Polymere Kandla Ltd.</li>
+                    <li>Legrand</li>
+                    <li>Arihant Bearing Services Pvt Ltd.</li>
+                    <li>INHIBEO WATER SOLUTION &amp; TECHNOLOGIES PVT. LTD.</li>
+                    <li>ERAWAT PHARMA LIMITED, Pithampur</li>
+                </ul>
+            </div>
+            <div class="list3">
+                <ul>
+                    <li>Addverb Technologies, Noida</li>
+                    <li>ACG Capsules, Pithampur, Pune</li>
+                    <li>Tata technologies Ltd.</li>
+                    <li>Linamar india Pvt Ltd.</li>
+                    <li>Mahindra &amp; Mahindra Ltd, Pithampur</li>
+                    <li>Sona BLW precision forgings Ltd.</li>
+                    <li>Adroit Industries (India) Ltd., Pithampur</li>
+                    <li>Bosch</li>
+                    <li>Endurance Technologies Limited,Aurangabad</li>
+                    <li>Steel Strips Wheels Limited, Banglore</li>
+                    <li>Mahindra Two Wheelers, Pithampur</li>
+                    <li>SPM Auto componant, Pithampur</li>
+                    <li>Motherson Sumi system Limited</li>
+                    <li>Omega renk Bearing Pvt .Ltd ,Bhopal</li>
+                    <li>Liugong Industries, Pithampur</li>
+                    <li>Suzuki Motor Gujrat</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            Designed & Developed by IGTR DICS 3rd YEAR(1st batch) Student -Indore.
+        </div>
+    </div>
+
+    <script>
+        //nav bar
+        function displayNav() {
+                document.getElementsByClassName("openBar")[0].style.visibility = "hidden";
+                document.getElementsByClassName("cancelBar")[0].style.visibility = "visible";
+                document.getElementById("navLi").style.transform = "translateX(0%)";
+            }
+    
+            function nonDisplatNav() {
+                document.getElementsByClassName("cancelBar")[0].style.visibility = "hidden";
+                document.getElementsByClassName("openBar")[0].style.visibility = "visible";
+                document.getElementById("navLi").style.transform = "translateX(-100%)";
+            }
+    
+    </script>
+    
+</body>
+
+</html>

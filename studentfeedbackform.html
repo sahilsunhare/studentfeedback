@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student feedback form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/aa63d55fe6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="studentfeedbackform.css">
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="feedbackform">
+            <form action="form.php" method="post">
+                <div class="fbnote">
+                    <div class="fbheading">
+                        <h1 class="student">Student</h1>
+                        <h1 class="fbform">Feedback Form</h1>
+                    </div>
+                    <h4>Please help us improve our course by filling out this student feedback form. We highly
+                        appreciate your involvement. Thank You!</h4>
+                </div>
+                <hr>
+                <div class="fbques">
+                    Teacher name<br>
+                    <input type="text" class="textbox" name="teacher" required="" placeholder="Enter your teacher name"><br><br>
+                    Course name / Year<br>
+                    <input type="text" class="textbox" name="course" required="" placeholder="Enter course name & year"><br><br>
+                    Subject name<br>
+                    <input type="text" class="textbox" name="subject" required="" placeholder="Enter subject name"><br><br>
+                </div>
+                <hr>
+                <div class="midfb">
+                    <div class="fbques1">
+                        <p> How did you like this lecture?</p>
+                        <input class="ques1" type="radio" id="very" value="verygood" name="nature" required="">
+                        <label for="verygood"> Very Good</label>
+                        <input class="ques1" type="radio" id="Good" value="Good" name="nature" required="">
+                        <label for="Good">Good</label>
+                        <input class="ques1" type="radio" id="verybad" value="verybad" name="nature" required="">
+                        <label for="verybad">Very Bad</label>
+                        <input class="ques1" type="radio" id="Bad" value="Bad" name="nature" required="">
+                        <label for="bad">Bad</label><br><br>
+                        <p>Treated students with respect?</p>
+                        <input type="radio" id="yes" value="yes" name="Treated" required="">
+                        <label for="good">Yes</label>
+                        <input type="radio" id="no" value="no" name="Treated" required="">
+                        <label for="very"> No</label>
+                        <input type="radio" id="both" value="both" name="Treated" required="">
+                        <label for="very"> Both</label><br><br>
+                        <p> How many minutes did Teacher tech you?</p>
+                        <input type="radio" id="good" value="good" name="minutes" required="">
+                        <label for="good">15-30</label>
+                        <input type="radio" id="very" value="very" name="minutes" required="">
+                        <label for="very"> 30-45</label>
+                        <input type="radio" id="Bad" value="Bad" name="minutes" required="">
+                        <label for="bad">45-60</label>
+                        <input type="radio" id="verybad" name="minutes" required="">
+                        <label>Above 60 minutes</label><br><br>
+                        <p>The teacher is regular and punctual in class.</p>
+                        <input type="radio" id="no" value="no" name="regular" required="">
+                        <label for="very">Strongly Agree</label>
+                        <input type="radio" id="yes" value="yes" name="regular" required="">
+                        <label for="good">Strongly Disagree</label>
+                        <input type="radio" id="yes" value="yes" name="regular" required="">
+                        <label for="good">Yes</label>
+                        <input type="radio" id="no" value="no" name="regular" required="">
+                        <label for="very"> No</label><br><br>
+                        <p> Have you understood what sir has taught you or not?</p>
+                        <input type="radio" id="yes" value="yes" name="understood" required="">
+                        <label for="good">Yes</label>
+                        <input type="radio" id="no" value="no" name="understood" required="">
+                        <label for="very"> No</label><br><br>
+                        What you like about this class?<br><input type="text" class="textbox" name="fav_language" required=""><br>
+                        Additional questions or comments.<br><input type="text" class="textbox" name="comment" required=""><br>
+                        How would I you rate my overall class attendance & participation?<br>
+                        <span onclick="gfg(1)" class="star">★
+                        </span>
+                        <span onclick="gfg(2)" class="star">★
+                        </span>
+                        <span onclick="gfg(3)" class="star">★
+                        </span>
+                        <span onclick="gfg(4)" class="star">★
+                        </span>
+                        <span onclick="gfg(5)" class="star">★
+                        </span>
+                        <p id="output" name="rating" required="">
+                            Rating is: 0/5
+                        </p>
+                        <input type="hidden" name="hidden_value" id="hidden" required="">
+                        <br><br>
+                        <div class="btn">
+                            <button type="submit" onclick="myfunction()">Submit</button>
+                        </div><br>
+                    </div>
+                    <div class="fbpeople">
+                        <img src="main project/fbformpeople.avif">
+                    </div>
+                </div>
+            </form>
+            <div class="footer">
+                Designed & Developed by IGTR DICS 3rd YEAR(1st batch) Student -Indore.
+            </div>
+        </div>
+        <script>
+            let data=0;
+            // To access the stars
+            let stars =
+                document.getElementsByClassName("star");
+            let output =
+                document.getElementById("output");
+            // Funtion to update rating
+            function gfg(n) {
+                remove();
+                for (let i = 0; i < n; i++) {
+                    if (n == 1) cls = "one";
+                    else if (n == 2) cls = "two";
+                    else if (n == 3) cls = "three";
+                    else if (n == 4) cls = "four";
+                    else if (n == 5) cls = "five";
+                    stars[i].className = "star " + cls;
+                }
+                output.innerText = "Rating is: " + n + "/5";
+                data=n;
+                
+            }
+            // To remove the pre-applied styling
+            function remove() {
+                let i = 0;
+                while (i < 5) {
+                    stars[i].className = "star";
+                    i++;
+                }
+            }
+            //questions input
+            let q = document.querySelectorAll(".ques1");
+            console.log(q.value);
+            function myfunction() {
+               document.querySelector("#hidden").value=data
+                alert("Success your response") //btn
+            }
+        </script>
+</body>
+
+</html>
